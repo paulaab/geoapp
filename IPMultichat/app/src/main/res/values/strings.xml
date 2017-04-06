@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Multicast Messaging</string>
+    <string name="welcome">Welcome!
+        Please select an option below</string>
+    <string name="title_send">Send a message:</string>
+    <string name="title_recieve">Recieved message:</string>
+    <string name="ip_address">My actual IP address is:</string>
+    <string name="button_recieve">Start receiving</string>
+    <string name="button_send">Send my message</string>
+    <string name="button_stop">Stop receiving</string>
+</resources>
