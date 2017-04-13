@@ -12,6 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.view.View;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.lang.String;
 import java.net.MulticastSocket;
 import java.net.DatagramPacket;
@@ -61,6 +65,48 @@ public class MainActivity extends AppCompatActivity {
         msgView.setAdapter(msgList);
         final EditText txtEdit = (EditText) findViewById(R.id.myMsg);
 
+ //Creating JSON Object
+        /**
+         {
+         "MessageTypeID" : 1,
+         "Erzeugerzeitpunkt" : 0,
+         "Lebensdauer" : 10,
+         "Lat" : 31.23
+         "Long" : 3.432
+         "Cell ID" : [0,1]
+         "Message" : "My String"
+         }
+
+
+         */
+        final JSONObject myJO = new JSONObject();
+        JSONArray jarr = new JSONArray();
+
+/*
+        try {
+            myJO.put("MessageTypeID", null);
+            myJO.put("Erzeugerzeitpunkt", null);
+            myJO.put("Lebensdauer", null);
+            myJO.put("Lat", null);
+            myJO.put("Long",null);
+            myJO.put("Cell ID",jarr);
+            myJO.put("Message", null);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }*/
+
+//JSON Object for testing purposes
+        try {
+            myJO.put("MessageTypeID", 2);
+            myJO.put("Erzeugerzeitpunkt", 12);
+            myJO.put("Lebensdauer", 12);
+            myJO.put("Lat", 51.23610018);
+            myJO.put("Long",6.73155069);
+            myJO.put("Cell ID",jarr);
+            myJO.put("Message", "hello");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
  //Click button to start sendMessage class
 
@@ -70,7 +116,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //sendMessage("Hello world");
-                sendMessage(txtEdit.getText().toString());
+                //sendMessage(txtEdit.getText().toString());
+                sendMessage(myJO.toString());
             }
         });
 
